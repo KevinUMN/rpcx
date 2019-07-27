@@ -69,6 +69,15 @@ func isExportedOrBuiltinType(t reflect.Type) bool {
 // no suitable methods. It also logs the error.
 // The client accesses each method using a string of the form "Type.Method",
 // where Type is the receiver's concrete type.
+/**
+	Desc: Register a RPC service
+  	@param rcvr:
+ 		The service type doesn't matter, it can be any builtin type or user-defined types.
+   		An example of service is github.com/rpcx-ecosystem/rpcx-examples3/service.go/Arith
+	@param metadata: todo
+  	Return:
+  	Error:
+*/
 func (s *Server) Register(rcvr interface{}, metadata string) error {
 	sname, err := s.register(rcvr, "", false)
 	if err != nil {
